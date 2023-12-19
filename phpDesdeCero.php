@@ -35,7 +35,7 @@
 	
 	$edad = [
 		'Pablo'	=> 25,
-		'Belen' => 27,
+		'Belen' => 27
 	];
 	print_r($edad);
 
@@ -51,3 +51,40 @@
 
 	#Estructuras de control
 	#Sirven para recorrer conjuntos de datos como arrays.
+	
+	#BUCLE FOR - Ejemplo1
+	/*$nombre = "Pablo";
+	$array = [1,2,3,"casa",$nombre];
+
+	#Saco la longitud de numeros de elementos.
+	$longitud = count($array);
+
+	#Recorro todos los elementos 
+	for ($i=0; $i < $longitud; $i++)
+	{
+			if ($array[$i] != "casa")
+			{
+				echo "No encontre una casa \n";
+			} else 
+				{
+					echo "Encontre la casa \n";
+				}
+	}*/
+
+	#Ejemplo 2
+	$array1 = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",];
+
+	$abecedario = count($array1);
+
+	for ($i=0; $i < $abecedario; $i++)
+	{
+			if ($array1[$i] != "a" && $array1[$i] != "e" && $array1[$i] != "i" && $array1[$i] != "o" && $array1[$i] != "u")
+			{
+					echo "consonante \n";
+			}
+				else
+				{
+						echo "vocal \n";
+				}
+	}
+
