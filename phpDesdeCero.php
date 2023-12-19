@@ -47,10 +47,7 @@
 	#Sintaxis
 	#define("nombreConst", "Valor constante(string)");
 	#Ej:
-	define("c", 23);
 
 
 	#Estructuras de control
 	#Sirven para recorrer conjuntos de datos como arrays.
-	#Sintaxis
-
