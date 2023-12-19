@@ -51,5 +51,6 @@
 
 
 	#Estructuras de control
-	#
+	#Sirven para recorrer conjuntos de datos como arrays.
+	#Sintaxis
 
