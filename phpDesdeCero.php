@@ -72,7 +72,7 @@
 	}*/
 
 	#Ejemplo 2
-	$array1 = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",];
+	$array1 = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",];
 
 	$abecedario = count($array1);
 
@@ -88,3 +88,47 @@
 				}
 	}
 
+	#BUCLE FOREACH
+	#Sintaxis
+	#foreach ($variable as $value){}
+	#Ejemplo1
+
+	$arr = ["uno","dos","tres","cuatro","cinco"];
+
+	foreach ($arr as $value)
+	{
+					if ($value != "uno")
+					{
+								echo "No es uno\n";
+					}
+					else 
+					{
+									echo "Es uno\n";
+					}
+	}
+
+	#foreach asociativo
+	#Sintaxis
+	#foreach($variable as $key => $value){}
+	#Ejemplo 2
+	$canasta	= [
+		"Frutas"=>"Manzana",
+		"Verdura"=>"Palta",
+		"Frutas"=>"Banana",
+		"Verdura"=>"Zapallo",
+		"Frutas"=>"Sandia"
+	];
+	foreach ($canasta as $Frutas => $value )
+	{
+		if ($canasta[$Frutas] != "Manzana")
+		{
+			echo "No es Manzana\n";
+		}
+		else
+		{
+			echo "Es una manzana";
+		}
+	}
+
+				
+	
