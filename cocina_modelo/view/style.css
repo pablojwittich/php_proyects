@@ -1,0 +1,86 @@
+/*CONFIGURACION GRAL*/
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*TAMAÑO => ESCRITORIO*/
+
+/*HEADER*/
+.foto0{
+    display: block;
+    margin: auto;
+    block-size: 3em; 
+    padding: 1em 1em 1em 1em;
+}
+
+h1 {
+    color: #045CAC;
+   text-align: center;
+   font-family: 'Arial';
+   font-size:xx-large;
+}
+
+h2 {
+    color: #045CAC;
+    text-align: center;
+    font-family: Arial;
+    font-style: italic;
+}
+
+/*MAIN*/
+.sec1, h1{
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.sec2{
+    background-color:#045CAC;;
+    padding: 3em 3em 3em 3em;
+    margin: 1.5em 10em 1.5em 10em;
+    border-radius: 10px;
+}
+
+.foto1{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+    transform: scale(150%);
+}
+
+.form1 {
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    float: left;
+    font-size: 1.2em;
+    color:white;
+    font-family: 'Arial';
+}
+
+.form2 {
+    color:white;
+    font-size: 1.1em;
+    font-family: 'Arial';
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+
+}
+
+ul{
+    list-style: none;
+}
+
+
+input{
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin: 1em 1em 1em 1em ;
+    border:solid #327db6;
+}
+
+
