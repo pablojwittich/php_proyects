@@ -1,20 +1,15 @@
 <?php 
-require 'vendor/autoload.php';
-class Connection 
+namespace Cocinamodelo\P4bl0;
+
+use CocinaModelo as GlobalCocinaModelo;
+use Cocinamodelo\P4bl0\CocinaModelo;
+
+class connection extends GlobalCocinaModelo
 {
-    private string $host = "localhost";
-    private string $user = "root";
-    private string $pass = "exito";
-    private string $bd = "cocinamodelo";
-
-
-    public function connectionBD()
+    public function connection()
     {
-        $conn = @mysqli_connect($host,$user,$pass,$bd);
+
     }
-    
-
-
 }
 
 

@@ -1,11 +1,12 @@
 <?php
-    include '/xampp/htdocs/cocina_modelo/model/connection.php';
+    include '/xampp/htdocs/php_proyects/cocina_modelo/src/model/connection.php';
+    require '/vendor/autoload.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="view/style.css" type="text/css" />
+    <link rel="stylesheet" href="src/view/style.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cocina Modelo</title>
 </head>
