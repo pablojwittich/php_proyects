@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = ['nombre', 'apellido', 'legajo', 'id_beneficio','uuid'];
+    protected $fillable = [
+        'nombre', 
+        'apellido', 
+        'legajo', 
+        'id_beneficio',
+        'uuid'
+    ];
 
     public function beneficio()
     {
