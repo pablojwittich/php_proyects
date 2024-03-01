@@ -17,3 +17,4 @@ use App\Http\Controllers\OrderController;
 
 Route::get('/',[OrdenController::class,'index'])->name('index');
 Route::get('/beneficio',[OrdenController::class,'viewBeneficio'])->name('beneficio');
+Route::get('/nuevosClientes',[OrdenController::class, 'nuevosClientes'])->name('nuevosClientes');

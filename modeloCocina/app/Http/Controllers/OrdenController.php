@@ -21,4 +21,9 @@ class OrdenController extends Controller
         $beneficios = Beneficio::all();
         return view('viewbeneficio', compact('beneficios'));
     }
+
+    public function nuevosClientes(){
+        return view('nuevosClientes');
+    }
+
 }

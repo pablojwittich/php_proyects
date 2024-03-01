@@ -1,6 +1,6 @@
 @include('app')
 
-<p>Beneficios disponibles</p>
+<h2>Beneficios disponibles</h2>
 <table class="table table-striped">
   <thead>
     <th scope="col">ID</th>
