@@ -1,7 +1,6 @@
 @include('app')
 
-
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -11,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($clientes as $cliente)
+    @foreach ($clinetes as $cliente)
     <tr>
         <th scope="row">1</th>
         <td>{{$cliente->legajo}}</td>
