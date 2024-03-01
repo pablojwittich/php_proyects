@@ -1,23 +1,36 @@
 @include('app')
-<h2>Crear un nuevo cliente</h2>
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+<form action="{{ route('saveCliente') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+<h2 style="text-align: center">Crear un nuevo cliente</h2>
+    <div class="mb-3">
+        <label for="legajo" class="form-label">Legajo</label>
+        <input type="number" class="form-control" id="legajo" name="legajo" placeholder="Legajo">
+    </div>
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
     </div>
     <div class="mb-3">
         <label for="apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido">
+        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
     </div>
     <div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Elija beneficio</option>
-            <option value="desayuno">Desayuno</option>
-            <option value="almuerzo">Almuerzo</option>
-            <option value="merienda">Merienda</option>
-            <option value="cena">Cena</option>
-</select>
+        <select class="form-select" aria-label="Default select example" name="tipobeneficio" id="tipobeneficio" >
+            <option selected="disableb">Elija beneficio</option>
+        @foreach ($benefActivos as $benefActivo)
+            <option value="{{$benefActivo->id}}">{{$benefActivo->nombre_beneficio}}</option>
+        @endforeach
+        </select>
     </div>
-    <div class="mb-3">
-        <label for="observaciones" class="form-label">Observaciones </label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div>
+        <button class="btn btn-primary" type="submit">Guardar</button>
     </div>
+</form>
