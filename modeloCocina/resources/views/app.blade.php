@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,37 +13,26 @@
       <h1 style="text-align: center">Cocina Modelo</h1>
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <!--<a class="navbar-brand" href="#">Navbar</a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{route('nuevosClientes')}}">Nuevo Cliente</a></li>
-            <li><a class="dropdown-item" href="#">Nuevo Beneficio</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('beneficio') }}">Beneficio</a>
-        </li>
-       <!-- 
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      -->
-      </ul>
-
-    </div>
-  </div>
-</nav>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Menu
+        </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{{route('nuevosClientes')}}">Nuevo Cliente</a></li>
+      <li><a class="dropdown-item" href="{{route('nuevosBenef')}}">Nuevo Beneficio</a></li>
+    </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('beneficio') }}">Beneficio</a>
+      </li>
+    </ul>
+    </nav>
   </body>
 </html>

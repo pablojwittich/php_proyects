@@ -14,8 +14,14 @@ use App\Http\Controllers\OrderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Get
 Route::get('/',[OrdenController::class,'index'])->name('index');
 Route::get('/beneficio',[OrdenController::class,'viewBeneficio'])->name('beneficio');
 Route::get('/nuevosClientes',[OrdenController::class, 'nuevosClientes'])->name('nuevosClientes');
+Route::get('/nuevosBenef', [OrdenController::class, 'nuevosBenef'])->name('nuevosBenef');
+
+//Post
 Route::post('/saveCLiente',[OrdenController::class, 'saveCliente'])->name('saveCliente');
+Route::post('/saveBenef', [OrdenController::class, 'saveBenef'])->name('saveBenef');
+
+
