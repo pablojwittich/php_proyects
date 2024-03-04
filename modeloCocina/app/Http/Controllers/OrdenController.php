@@ -9,9 +9,24 @@ use App\Models\Cliente;
 class OrdenController extends Controller
 {
     // Vista tabla clientes
-    public function index()
-    {
-        $clientes = Cliente::all();
+    public function index(Request $request)
+    { 
+        //agregar pin, legajo y beneficio
+        $nombre = $request->input('nombre');
+        $apellido = $request->input('apellido');
+
+        $clientes = Cliente::select(
+            'id',
+            'nombre',
+            'apellido',
+            'legajo',
+            'uuid',
+            'id_beneficio'
+        )
+        join('beneficios', 'clientes.id_beneficio', '=', 'clientes.id')
+        ->when($nombre, function ($query, $nombre{$query->where('clientes.nombre',$nombre)}))
+       
+
         return view('index', compact('clientes'));
     }
 
@@ -32,6 +47,7 @@ class OrdenController extends Controller
     // Funcion para guardar los nuevos clientes con benenficio
     public function saveCliente(Request $request)
     {
+        $codigoUnico = $this->getuuid();
         $saveCliente = new Cliente([
             // El primero, el de la izq corresponde a como se llama el campo en la BD
             // El de la derecha, corresponde al value del formulario
@@ -40,7 +56,7 @@ class OrdenController extends Controller
             'apellido' => $request -> input('apellido'),
             'legajo' => $request -> input('legajo'),
             'id_beneficio' => $request -> input('tipobeneficio'),
-            'uuid' => 336,
+            'uuid' => $codigoUnico
             // Salta funcion para indicador unico
         ]);
         $saveCliente -> save();
@@ -65,6 +81,13 @@ class OrdenController extends Controller
         $benefActivos = Beneficio::all();
         return back()->with('success', 'Operación realizada con éxito')->with(compact('benefActivos'));
 
+    }
+
+    public function getuuid()
+    {
+        $uuid = uniqid();
+        $codigoUnico = substr($uuid,0,6);
+        return $codigoUnico;
     }
 
     
