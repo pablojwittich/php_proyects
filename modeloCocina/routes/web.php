@@ -19,6 +19,7 @@ Route::get('/',[OrdenController::class,'index'])->name('index');
 Route::get('/beneficio',[OrdenController::class,'viewBeneficio'])->name('beneficio');
 Route::get('/nuevosClientes',[OrdenController::class, 'nuevosClientes'])->name('nuevosClientes');
 Route::get('/nuevosBenef', [OrdenController::class, 'nuevosBenef'])->name('nuevosBenef');
+Route::get('/vistauser', [OrdenController::class, 'vistauser'])->name('vistauser');
 
 //Post
 Route::post('/saveCLiente',[OrdenController::class, 'saveCliente'])->name('saveCliente');

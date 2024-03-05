@@ -112,4 +112,9 @@ class OrdenController extends Controller
         $codigoUnico = substr($uuid,0,6);
         return $codigoUnico;
     }
+
+    public function vistaUser()
+    {
+        return view('vistauser');
+    }
 }
