@@ -45,9 +45,9 @@ class OrdenController extends Controller
             return $query->where('clientes.uuid', 'like', '%' . $codigoUnico . '%');
         })
         //Beneficio
-        //->when($benefActivos, function($query) use ($benefActivos){
-         //   return $query->where('clientes.beneficio', 'like', '%' . $benefActivos . '%');
-        //})
+        ->when($benefActivos, function($query) use ($benefActivos){
+            return $query->where('beneficios.nombre_beneficio', 'like', '%' . $benefActivos . '%');
+        })
         ->get();
 
         //Imprime todos los clientes
