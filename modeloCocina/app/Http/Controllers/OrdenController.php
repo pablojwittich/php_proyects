@@ -10,25 +10,37 @@ class OrdenController extends Controller
 {
     // Vista tabla clientes
     public function index(Request $request)
-    { 
-        //agregar pin, legajo y beneficio
+    {
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
-
+        
         $clientes = Cliente::select(
-            'id',
-            'nombre',
-            'apellido',
-            'legajo',
-            'uuid',
-            'id_beneficio'
-        )
-        join('beneficios', 'clientes.id_beneficio', '=', 'clientes.id')
-        ->when($nombre, function ($query, $nombre{$query->where('clientes.nombre',$nombre)}))
-       
+        'clientes.id',
+        'clientes.nombre',
+        'clientes.apellido',
+        'clientes.legajo',
+        'clientes.uuid',
+        'clientes.id_beneficio',
+        //Va a la tabla beneficio busca el nombre del beneficio 
+        //y lo renombra solo con nombre_beneficio
+        'beneficios.nombre_beneficio as nombre_beneficio'
+    )
+        ->join('beneficios', 'beneficios.id', '=', 'clientes.id_beneficio')
+        //Aca se hace la busqueda 
+        ->when($nombre, function ($query) use ($nombre) {
+            return $query->where('clientes.nombre', 'like', '%' . $nombre . '%');
+        })
+        ->when($apellido, function ($query) use ($apellido) {
+            return $query->where('clientes.apellido', 'like', '%' . $apellido . '%');
+        })
+        ->get();
 
         return view('index', compact('clientes'));
     }
+
+        
+       
+
 
     // Vista tabla beneficios
     public function viewBeneficio()

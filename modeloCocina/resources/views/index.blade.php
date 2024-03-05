@@ -14,6 +14,8 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Pin</th>
+      <th scope="col">Beneficio</th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +25,8 @@
         <td>{{$cliente->nombre}}</td>
         <td>{{$cliente->apellido}}</td>
         <td>{{$cliente->uuid}}</td>
+        <td>{{$cliente->nombre_beneficio}}</td>
+        <td><button class="btn btn-outline-primary type="submit">Editar</button></td>
     </tr>
     @endforeach
 
