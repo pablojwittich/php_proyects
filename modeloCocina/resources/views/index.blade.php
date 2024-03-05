@@ -3,6 +3,10 @@
 <form class="d-flex" role="search" method="GET" action="{{route('index')}}">
   <input class="form-control me-2" type="text" name="nombre" placeholder="Buscar por nombre" aria-label="Buscar por nombre">
   <input class="form-control me-2" type="text" name="apellido" placeholder="Buscar por apellido" aria-label="Buscar por apellido">
+  <input class="form-control me-2" type="number" name="legajo" placeholder="Buscar por legajo" aria-label="Buscar por legajo">
+  <input class="form-control me-2" type="number" name="uuid" placeholder="Buscar por Pin" aria-label="Buscar por Pin">
+  <input class="form-control me-2" type="text" name="beneficio" placeholder="Buscar por beneficios" aria-label="Buscar por beneficio">
+  
   <button class="btn btn-outline-success" type="submit">Buscar</button>
 </form>
 

@@ -8,11 +8,13 @@ use App\Models\Cliente;
 
 class OrdenController extends Controller
 {
-    // Vista tabla clientes
     public function index(Request $request)
     {
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
+        $legajo = $request->input('legajo');
+        $codigoUnico = $request->input('uuid');
+        $benefActivos = $request->input('beneficio');
         
         $clientes = Cliente::select(
         'clientes.id',
@@ -26,37 +28,47 @@ class OrdenController extends Controller
         'beneficios.nombre_beneficio as nombre_beneficio'
     )
         ->join('beneficios', 'beneficios.id', '=', 'clientes.id_beneficio')
-        //Aca se hace la busqueda 
+        //Nombre
         ->when($nombre, function ($query) use ($nombre) {
             return $query->where('clientes.nombre', 'like', '%' . $nombre . '%');
         })
+        //Apellido
         ->when($apellido, function ($query) use ($apellido) {
             return $query->where('clientes.apellido', 'like', '%' . $apellido . '%');
         })
+        //Legajo
+        ->when($legajo, function($query) use ($legajo){
+            return $query->where('clientes.legajo', 'like', '%' . $legajo .'%' );
+        })
+        //UUID
+        ->when($codigoUnico, function($query) use ($codigoUnico){
+            return $query->where('clientes.uuid', 'like', '%' . $codigoUnico . '%');
+        })
+        //Beneficio
+        //->when($benefActivos, function($query) use ($benefActivos){
+         //   return $query->where('clientes.beneficio', 'like', '%' . $benefActivos . '%');
+        //})
         ->get();
 
+        //Imprime todos los clientes
         return view('index', compact('clientes'));
     }
 
-        
-       
-
-
-    // Vista tabla beneficios
+    // Controlador para ver beneficios
     public function viewBeneficio()
     {
         $beneficios = Beneficio::all();
         return view('viewbeneficio', compact('beneficios'));
     }
 
-    // Vista crear nuevos clientes con beneficio
+    // Controlador crear nuevos clientes con beneficio
     public function nuevosClientes()
     {
         $benefActivos = Beneficio::all();
         return view('nuevosClientes', compact('benefActivos'));
     }
 
-    // Funcion para guardar los nuevos clientes con benenficio
+    // Controlador para guardar los nuevos clientes con benenficio
     public function saveCliente(Request $request)
     {
         $codigoUnico = $this->getuuid();
@@ -69,7 +81,6 @@ class OrdenController extends Controller
             'legajo' => $request -> input('legajo'),
             'id_beneficio' => $request -> input('tipobeneficio'),
             'uuid' => $codigoUnico
-            // Salta funcion para indicador unico
         ]);
         $saveCliente -> save();
         $benefActivos = Beneficio::all();
@@ -77,13 +88,13 @@ class OrdenController extends Controller
         // Como hacer para guardar un cliente con mas de un beneficio
     }
 
-
+    //Controlador de nuevos beneficios
     public function nuevosBenef()
     {
         return view('nuevosBenef');
     }
 
-
+    //Controlador para guardar los nuevos beneficios
     public function saveBenef(Request $request)
     {
         $saveBenef = new Beneficio([
@@ -92,18 +103,13 @@ class OrdenController extends Controller
         $saveBenef -> save();
         $benefActivos = Beneficio::all();
         return back()->with('success', 'Operación realizada con éxito')->with(compact('benefActivos'));
-
     }
 
+    //Controlador para generar codigo unico para cada cliente
     public function getuuid()
     {
         $uuid = uniqid();
         $codigoUnico = substr($uuid,0,6);
         return $codigoUnico;
     }
-
-    
-
-
-
 }
