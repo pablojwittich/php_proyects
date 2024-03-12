@@ -12,28 +12,36 @@
 
 <h2 style="text-align: center">Clientes disponibles</h2>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Legajo</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Pin</th>
-      <th scope="col">Beneficio</th>
-      <th scope="col">Editar</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($clientes as $cliente)
-    <tr>
-        <td>{{$cliente->legajo}}</td>
-        <td>{{$cliente->nombre}}</td>
-        <td>{{$cliente->apellido}}</td>
-        <td>{{$cliente->uuid}}</td>
-        <td>{{$cliente->nombre_beneficio}}</td>
-        <td><button class="btn btn-outline-primary type="submit">Editar</button>
-        <button class="btn btn-outline-success type="submit">Ver QR</button></td>
-    </tr>
-    @endforeach
-
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">Legajo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Pin</th>
+            <th scope="col">Beneficios</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($clientes as $cliente)
+        <tr>
+            <td>{{ $cliente->legajo }}</td>
+            <td>{{ $cliente->nombre }}</td>
+            <td>{{ $cliente->apellido }}</td>
+            <td>{{ $cliente->uuid }}</td>
+            <td>
+                @foreach ($cliente->beneficios as $beneficio)
+                    {{ $beneficio->nombre_beneficio }}
+                    @if (!$loop->last) {{-- Evita agregar coma al último beneficio --}}
+                        ,
+                    @endif
+                @endforeach
+            </td>
+            <td>
+                <button class="btn btn-outline-primary type="submit">Editar</button>
+                <button class="btn btn-outline-success type="submit">Ver QR</button>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
 </table>

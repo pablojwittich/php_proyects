@@ -10,14 +10,15 @@ class Cliente extends Model
     protected $fillable = [
         'nombre', 
         'apellido', 
-        'legajo', 
+        'legajo',
+        'estado',
         'id_beneficio',
         'uuid'
     ];
 
-    public function beneficio()
+    public function beneficios()
     {
-        $this->belongsTo(Beneficio::class, 'id_beneficio');
+        return $this->belongsToMany(Beneficio::class, 'cliente_beneficio', 'cliente_id', 'beneficio_id');
     }
 
 }

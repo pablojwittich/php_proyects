@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->integer('legajo');
-            $table->unsignedBigInteger('id_beneficio');
-            $table->foreign('id_beneficio')->references('id')->on('beneficios');
             $table->uuid('uuid')->unique();
+            $table->integer('estado');
             $table->timestamps();
         });
     }

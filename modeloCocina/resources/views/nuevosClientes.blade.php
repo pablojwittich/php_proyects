@@ -7,9 +7,9 @@
 @endif
 
 <form action="{{ route('saveCliente') }}" method="post" enctype="multipart/form-data">
-        @csrf
+    @csrf
 
-<h2 style="text-align: center">Crear un nuevo cliente</h2>
+    <h2 style="text-align: center">Crear un nuevo cliente</h2>
     <div class="mb-3">
         <label for="legajo" class="form-label">Legajo</label>
         <input type="number" class="form-control" id="legajo" name="legajo" placeholder="Legajo">
@@ -22,12 +22,12 @@
         <label for="apellido" class="form-label">Apellido</label>
         <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
     </div>
-    <div>
-        <select class="form-select" aria-label="Default select example" name="tipobeneficio" id="tipobeneficio" >
-            <option selected="disableb">Elija beneficio</option>
-        @foreach ($benefActivos as $benefActivo)
-            <option value="{{$benefActivo->id}}">{{$benefActivo->nombre_beneficio}}</option>
-        @endforeach
+    <div class="mb-3">
+        <label for="beneficios" class="form-label">Beneficios</label>
+        <select class="form-select" multiple aria-label="Multiple select example" name="beneficios[]" id="beneficios">
+            @foreach ($benefActivos as $benefActivo)
+                <option value="{{ $benefActivo->id }}">{{ $benefActivo->nombre_beneficio }}</option>
+            @endforeach
         </select>
     </div>
     <div>

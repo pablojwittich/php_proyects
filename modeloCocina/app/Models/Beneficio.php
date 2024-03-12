@@ -14,6 +14,6 @@ class Beneficio extends Model
     // Aca se define la funcion de uno a muchos -> donde un beneficio puede tener muchos clientes
     public function clientes()
     {
-        return $this->hasMany(Cliente::class,'id_beneficio');
+        return $this->belongsToMany(Cliente::class, 'cliente_beneficio', 'beneficio_id', 'cliente_id');
     }
 }
