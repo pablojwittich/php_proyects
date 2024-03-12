@@ -30,7 +30,8 @@
         <td>{{$cliente->apellido}}</td>
         <td>{{$cliente->uuid}}</td>
         <td>{{$cliente->nombre_beneficio}}</td>
-        <td><button class="btn btn-outline-primary type="submit">Editar</button></td>
+        <td><button class="btn btn-outline-primary type="submit">Editar</button>
+        <button class="btn btn-outline-success type="submit">Ver QR</button></td>
     </tr>
     @endforeach
 

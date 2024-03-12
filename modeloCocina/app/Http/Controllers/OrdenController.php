@@ -113,8 +113,9 @@ class OrdenController extends Controller
         return $codigoUnico;
     }
 
-    public function vistaUser()
+    public function viewUser($id)
     {
-        return view('vistauser');
+        $cliente = Cliente::findOrFail($id);
+        return  view('viewUser', compact('cliente'));
     }
 }
