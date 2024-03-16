@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Beneficio;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class OrdenController extends Controller
 {
     public function index(Request $request)
     {
+        // Seccion para la busqueda 
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
         $legajo = $request->input('legajo');
         $codigoUnico = $request->input('uuid');
         $benefActivos = $request->input('beneficio');
-    
+
+        // Accedo a mi clase cliente para crear el filtro
         $clientes = Cliente::select(
             'clientes.id',
             'clientes.nombre',
@@ -42,7 +45,7 @@ class OrdenController extends Controller
                 });
             })
             ->get();
-    
+
         return view('index', compact('clientes'));
     }
         // Controlador para ver beneficios
@@ -61,8 +64,8 @@ class OrdenController extends Controller
 
     public function saveCliente(Request $request)
     {
-        $codigoUnico = $this->getuuid();
-        
+        $codigoUnico = $this->getUuid();
+
         $cliente = new Cliente([
             'nombre' => $request->input('nombre'),
             'apellido' => $request->input('apellido'),
@@ -70,17 +73,17 @@ class OrdenController extends Controller
             'uuid' => $codigoUnico,
             'estado' => '1'
         ]);
-    
+
         $cliente->save();
-    
+
         // Attach beneficios to the client
         $beneficiosSeleccionados = $request->input('beneficios', []); // Obtén los beneficios seleccionados (puede ser un array)
-        
+
         // Asociar beneficios al cliente
         $cliente->beneficios()->attach($beneficiosSeleccionados);
-    
+
         $benefActivos = Beneficio::all();
-    
+
         return back()->with('success', 'Operación realizada con éxito')->with(compact('benefActivos'));
     }
 
@@ -102,11 +105,10 @@ class OrdenController extends Controller
     }
 
     //Controlador para generar codigo unico para cada cliente
-    public function getuuid()
+    public function getUuid()
     {
-        $uuid = uniqid();
-        $codigoUnico = substr($uuid,0,6);
-        return $codigoUnico;
+        $uuid = uniqid('', true);
+        return $uuid;
     }
 
     public function viewUser($id)
@@ -114,5 +116,7 @@ class OrdenController extends Controller
         $cliente = Cliente::with('beneficios')->findOrFail($id);
         return view('viewUser', compact('cliente'));
     }
+
     
+
 }
