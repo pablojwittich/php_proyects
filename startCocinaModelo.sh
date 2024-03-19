@@ -1,4 +1,4 @@
 cd /home/p4bl0/Documentos/php_proyects/modeloCocina/
-systemcl restart mysql httpd
-systemcl status mysql httpd
+systemctl restart mysql httpd
+systemctl status mysql httpd
 php artisan serve

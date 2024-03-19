@@ -11,7 +11,7 @@ class OrdenController extends Controller
 {
     public function index(Request $request)
     {
-        // Seccion para la busqueda 
+        // Seccion para la busqueda
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
         $legajo = $request->input('legajo');
@@ -117,6 +117,6 @@ class OrdenController extends Controller
         return view('viewUser', compact('cliente'));
     }
 
-    
+
 
 }
