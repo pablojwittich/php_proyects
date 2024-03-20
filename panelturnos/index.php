@@ -11,13 +11,19 @@ include('conexion.php');
       border-collapse: collapse;
       width: 100%;
       border-color: #A2AFAF;
+      font-family: Arial;
     }
-    th, td {
+    td{
       border: 1px solid #A2AFAF;
       text-align: left;
       padding: 8px;
+      font-size: 0.7em;
     }
-    th {background-color:#BEE1E2;}
+    th {
+      background-color:#BEE1E2;
+      font-size: 0.9em;
+
+    }
     .q1{background-color: #83B8AE;}
     .q2{background-color: #2994A7;}
     .q3{background-color: #BEE1E2;}
@@ -26,10 +32,11 @@ include('conexion.php');
     .q6{background-color: #2994A7;}
     .g2{background-color: #83B8AE;}
     .pendiente{
-      display: block;
+      display: flex;
+      align-items: center;
       margin: 0 auto;
-      width: 5px;
-      height: 5px;
+      width: 2px;
+      height: 2px;
      -webkit-border-radius: 50%;
      border-radius: 50%;
      aspect-ratio: 1/1;
@@ -38,8 +45,8 @@ include('conexion.php');
     .realizado{
       display: block;
       margin: 0 auto;
-      width: 5px;
-      height: 5px;
+      width: 2px;
+      height: 2px;
      -webkit-border-radius: 50%;
      border-radius: 50%;
      aspect-ratio: 1/1;
@@ -48,8 +55,8 @@ include('conexion.php');
     .icebox{
       display: block;
       margin: 0 auto;
-      width: 5px;
-      height: 5px;
+      width: 2px;
+      height: 2px;
      -webkit-border-radius: 50%;
      border-radius: 50%;
      aspect-ratio: 1/1;
@@ -64,13 +71,13 @@ include('conexion.php');
 <table>
   <tr>
     <th>Fecha</th>
-    <th>Qx</th>
-    <th>Estado</th>
-    <th>Hora Inicio</th>
-    <th>Cirujano</th>
-    <th>Anestesista</th>
-    <th>Paciente</th>
-    <th>Practica</th>
+    <th>QX</th>
+    <th>ESTADO</th>
+    <th>INICIO</th>
+    <th>CIRUJANO</th>
+    <th>ANESTESISTA</th>
+    <th>PACIENTE</th>
+    <th>PRACTICA</th>
   </tr>
 
   <?php
