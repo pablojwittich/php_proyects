@@ -3,7 +3,7 @@
 <div class="container">
     <!-- Content here -->
     <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+    <img src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="Código QR del cliente">
         <div class="card-body">
             <h5 class="card-title">Detalles del Cliente</h5>
             <table class="table">

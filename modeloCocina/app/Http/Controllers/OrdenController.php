@@ -110,13 +110,20 @@ class OrdenController extends Controller
         $uuid = uniqid('', true);
         return $uuid;
     }
-
     public function viewUser($id)
     {
         $cliente = Cliente::with('beneficios')->findOrFail($id);
-        return view('viewUser', compact('cliente'));
+        //$codigoQR = $this->genereQr($id);
+        $qrCode = QrCode::size(800)->generate($cliente->id);
+        return view('viewUser', compact('cliente','qrCode'));
+
     }
 
-
+    public function genereQr($id)
+    {
+        $nuevoQR = Cliente::find($id);
+        //$qrCode = QrCode::size(800)->generate($nuevoQR->id);
+        return $nuevoQR;
+    }
 
 }
