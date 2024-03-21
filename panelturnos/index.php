@@ -69,25 +69,26 @@ include('conexion.php');
 
 
 <table>
-  <tr>
-    <th>Fecha</th>
-    <th>QX</th>
-    <th>ESTADO</th>
-    <th>INICIO</th>
-    <th>CIRUJANO</th>
-    <th>ANESTESISTA</th>
-    <th>PACIENTE</th>
-    <th>PRACTICA</th>
-  </tr>
-
-  <?php
+<?php
   if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+  $row = $result->fetch_assoc();
+  $date = $row['Fecha'];
+  echo'<tr>';
+    echo'<th type="datetime">'.$date.'</th>';
+    echo'<th>ESTADO</th>';
+    echo'<th>INICIO</th>';
+    echo'<th>CIRUJANO</th>';
+    echo'<th>ANESTESISTA</th>';
+    echo'<th>PACIENTE</th>';
+    echo'<th>PRACTICA</th>';
+  echo'</tr>';
+  //for($i=0; true; $i):
+    while($row = $result->fetch_assoc()):
       echo "<tr>";
       //echo "<td>".$row["Numero"]."</td>";
       //echo "<td>".$row['id']."</td>";
       //echo "<td>".$row["ParaInternar"]."</td>";
-      $date = $row['Fecha'];
+      
       $qx = $row['Descripcion'];
       $status = $row['Estado'];
       $hora = $row['HoraInicio'];
@@ -96,8 +97,6 @@ include('conexion.php');
       $paciente = $row['Nombre'];
       $practica = $row['DescripcionCirugia'];
 
-      
-      echo "<td>".$date."</td>";
       switch ($qx):
         case "Q 1":echo "<td class='q1'>".$qx."</td>";break;
         case "Q 2":echo "<td class='q2'>".$qx."</td>";break;
@@ -119,7 +118,9 @@ include('conexion.php');
       echo "<td>".$paciente."</td>";
       echo "<td>".$practica."</td>";
       echo "</tr>";
-    }
+    endwhile;
+    //sleep(60);
+  //endfor;
   } else {
     echo "<tr><td colspan='8'>0 resultados</td></tr>";
   }
