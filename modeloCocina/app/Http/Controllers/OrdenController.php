@@ -6,11 +6,13 @@ use App\Models\Beneficio;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\URL;
 
 class OrdenController extends Controller
 {
     public function index(Request $request)
     {
+
         // Seccion para la busqueda
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
@@ -26,6 +28,7 @@ class OrdenController extends Controller
             'clientes.legajo',
             'clientes.uuid'
         )
+
             ->with('beneficios') // Cargar la relación "beneficios" para evitar N+1 problem
             ->when($nombre, function ($query) use ($nombre) {
                 return $query->where('nombre', 'like', '%' . $nombre . '%');
@@ -46,7 +49,14 @@ class OrdenController extends Controller
             })
             ->get();
 
-        return view('index', compact('clientes'));
+
+        // Generar el código QR para cada cliente y agregarlo al conjunto de datos
+        foreach ($clientes as $cliente) {
+            $qrCode = QrCode::size(150)->generate($cliente->id); // Genera el código QR utilizando el UUID del cliente
+            $cliente->qrCode = $qrCode; // Agrega el código QR al objeto cliente
+    }
+
+        return view('index', compact('clientes', 'qrCode'));
     }
         // Controlador para ver beneficios
     public function viewBeneficio()
@@ -114,7 +124,7 @@ class OrdenController extends Controller
     {
         $cliente = Cliente::with('beneficios')->findOrFail($id);
         //$codigoQR = $this->genereQr($id);
-        $qrCode = QrCode::size(800)->generate($cliente->id);
+        $qrCode = QrCode::size(200)->generate($cliente->id);
         return view('viewUser', compact('cliente','qrCode'));
 
     }
@@ -125,5 +135,23 @@ class OrdenController extends Controller
         //$qrCode = QrCode::size(800)->generate($nuevoQR->id);
         return $nuevoQR;
     }
-
+    public function updateClient(Request $request,  $id)
+    {
+        $cliente = Cliente::findOrFail($id);
+        $benefActivos =  Beneficio::all();
+        $cliente->update($request->all());
+        return back()->with('success', 'Se actualizo con exito')->with('cliente','benefActivos');
+    }
+   public function edit($id)
+    {
+        $cliente = Cliente::findOrFail($id);
+        $benefActivos =  Beneficio::all();
+        return view('editUser', compact('cliente','benefActivos'));
+   }
+   public function verQr($id)
+    {
+        $url = URL::route('viewUser', ['id' => $id]); // Obtén la URL de la ruta 'viewUser' con el ID del cliente
+        $qrCode = QrCode::size(400)->generate($url); // Genera el código QR con la URL
+        return view('verQr', compact('qrCode'));
+    }
 }

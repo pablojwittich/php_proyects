@@ -38,31 +38,30 @@
                 @endforeach
             </td>
             <td>
-                <button class="btn btn-outline-primary" type="submit">Editar</button>
+                <button class="btn btn-outline-primary" type="botom"><a href="{{route('editOrden',['id'=>$cliente->id])}}" method="GET">Editar</a></button>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Ver QR
-                </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{$cliente->id}}">
+            Ver QR
+        </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">QR Disponible</h1>
+                <div class="modal fade" id="exampleModal{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$cliente->id}}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel{{$cliente->id}}">QR Disponible</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <img src="data:image/png;base64,{{ $qrCode }}" alt="Código QR del cliente">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      </div>
                     </div>
-                  </div>
+                    <div class="modal-body">
+                        <!-- Mostrar el código QR generado -->
+                        {!! $cliente->qrCode !!}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
-            </td>
-        </tr>
+            </div>
+        </div>
         @endforeach
     </tbody>
 </table>
