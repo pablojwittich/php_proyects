@@ -1,9 +1,8 @@
 @include('app')
 
 <div class="container">
-    <!-- Content here -->
-    <div class="card">
-        <img src="data:image/png;base64,{{ $qrCode }}" alt="Código QR del cliente">
+    <div>
+        <div style="display: block; justify-content: center;align-items: center;" src="data:image/svg;base64,{{ $qrCode }}
         <div class="card-body">
             <h5 class="card-title">Detalles del Cliente</h5>
             <table class="table">

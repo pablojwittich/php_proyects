@@ -9,7 +9,7 @@
 <form action="{{ route('saveCliente') }}" method="post" enctype="multipart/form-data">
     @csrf
 
-    <h2 style="text-align: center">Crear un nuevo cliente</h2>
+    <h2 style="text-align: center; color:#2994A7">Crear un nuevo Cliente</h2>
     <div class="mb-3">
         <label for="legajo" class="form-label">Legajo</label>
         <input type="number" class="form-control" id="legajo" name="legajo" placeholder="Legajo">
