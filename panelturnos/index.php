@@ -17,11 +17,11 @@ include('conexion.php');
       border: 1px solid #A2AFAF;
       text-align: left;
       padding: 8px;
-      font-size: 0.9em;
+      font-size: 0.7em;
     }
     th {
       background-color:#BEE1E2;
-      font-size: 0.7em;
+      font-size: 0.9em;
 
     }
     .q1{background-color: #83B8AE;}
@@ -72,9 +72,10 @@ include('conexion.php');
 <?php
   if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
-  $date = $row['Fecha'];
+  $date = new DateTime($row['Fecha']);
+  $fecha = $date->format('d-m-y');
   echo'<tr>';
-    echo'<th type="datetime">'.$date.'</th>';
+    echo'<th>'.$fecha.'</th>';
     echo'<th>ESTADO</th>';
     echo'<th>INICIO</th>';
     echo'<th>CIRUJANO</th>';
@@ -82,7 +83,7 @@ include('conexion.php');
     echo'<th>PACIENTE</th>';
     echo'<th>PRACTICA</th>';
   echo'</tr>';
-  for($i=0; true; $i):
+  //for($i=0; true; $i):
     while($row = $result->fetch_assoc()):
       echo "<tr>";
       //echo "<td>".$row["Numero"]."</td>";
@@ -119,8 +120,8 @@ include('conexion.php');
       echo "<td>".$practica."</td>";
       echo "</tr>";
     endwhile;
-    sleep(60);
-  endfor;
+    //sleep(60);
+  //endfor;
   } else {
     echo "<tr><td colspan='8'>0 resultados</td></tr>";
   }
