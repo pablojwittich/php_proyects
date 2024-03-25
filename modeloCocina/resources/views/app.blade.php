@@ -14,27 +14,29 @@
       <h1 style="text-align: center; color:#25569E; padding-top:1em;">COCINA MODELO</h1>
     </header>
     <nav style="background-color:#BEE1E2; margin-bottom:1em; font-size:1.2em;border-radius:50px; padding-left:2em" class="navbar navbar-expand-lg ">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <ul style="background-color: #BEE1E2" class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item dropdown">
-        <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Menu
-        </a>
-    <ul style="background-color: #BEE1E2"  class="dropdown-menu">
-      <li><a class="dropdown-item" href="{{route('nuevosClientes')}}">Nuevo Cliente</a></li>
-      <li><a class="dropdown-item" href="{{route('nuevosBenef')}}">Nuevo Beneficio</a></li>
-    </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('beneficio') }}">Beneficio</a>
-      </li>
-    </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul style="background-color: #BEE1E2" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul style="background-color: #BEE1E2"  class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{route('nuevosClientes')}}">Nuevo Cliente</a></li>
+            <li><a class="dropdown-item" href="{{route('nuevosBenef')}}">Nuevo Beneficio</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('beneficio') }}">Beneficio</a>
+        </li>
+      </ul>
     </nav>
+    <main style="padding-left: 1em; padding-right:1em">
      <script src="{{ asset('js/app.js') }}"></script>
+    </main>
   </body>
 </html>
