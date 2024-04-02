@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// GET
+Route::get('/', [OrderController::class, 'app'])->name('app');
+
