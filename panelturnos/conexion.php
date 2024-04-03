@@ -1,8 +1,8 @@
 <?php
-$servername = '192.168.1.4';
-$username = "sanatorio";
-$password = "123";
-$database = "sanatorio";
+$servername = '127.0.0.1';
+$username = "root";
+$password = "";
+$database = "panelturnos";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
