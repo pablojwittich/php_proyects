@@ -9,39 +9,29 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
+    // Atributos que se tienen que llenar
+    protected $fillable =[
         'name',
         'email',
+        'username',
         'password',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
+    // Metodos que no se serializan
+    protected $hidden =[
         'password',
         'remember_token',
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Atributos a ser casteados
+    protected $casts=[
+    'email_verified'=>'datetime',
+    ];
+    //Muttors -> nos permiten ejecutar funciones que van a hacer alguan
+    //con algunos de los atributos. Se tiene que colocar la palabra set y
+    //luego el nombre del atributo mas attibute
+    public function setPasswordAttribute($value)
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $this->attributes['password']=bcrypt($value);
     }
 }

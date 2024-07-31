@@ -28,8 +28,10 @@
 				<li class="nav-item">
           			<a style="color:white" class="nav-link" aria-current="page" href="{{route('contacto')}}">Contacto</a>
         		</li>
+        		<li class="nav-item">
+          			<a style="color:white; padding-left:52em;" class="nav-link" aria-current="page" href="{{route('login')}}">Login/Registro</a>
+        		</li>
   			</div>
 		</nav>
 	</body>
 </html>
-
