@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\task;
+use Illuminate\Console\View\Components\Task as ComponentsTask;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -12,12 +13,12 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view("index");
+        return view("task.index");
     }
 
     public function app()
     {
-        return view("app");
+        return view("task.app");
     }
 
     /**
@@ -33,7 +34,12 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Recepciona todos los datos
+        $task = request()->all();
+        //Creamos los modelos con los datos recibidos
+        Task::created($task);
+        //Redirrecionamos
+        return redirect('/');
     }
 
     /**
