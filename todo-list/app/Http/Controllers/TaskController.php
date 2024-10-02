@@ -13,7 +13,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view("task.index");
+        $task['tasks'] = Task::all();
+        return view("task.index", $task);
     }
 
     public function app()
@@ -37,7 +38,7 @@ class TaskController extends Controller
         //Recepciona todos los datos
         $task = request()->all();
         //Creamos los modelos con los datos recibidos
-        Task::created($task);
+        Task::create($task);
         //Redirrecionamos
         return redirect('/');
     }
