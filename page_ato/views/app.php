@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sq
     </head>
-    <body>
+    <body style="width:90%">
+      <main>
         <section style="display: block; justify-content: center; align-items: center; width: 90%">
         <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,6 +39,7 @@
         </nav>
         </header>
         </section>
+      </main>
         <footer style="vertical-align: bottom; text-align:center ;position: fixed; left: 0; bottom: 0; width: 100%;">
           <hr style="width:90% ;">
           <p>&copy; Copyright 2024 Indelt. Todos los derechos reservados.</p>
