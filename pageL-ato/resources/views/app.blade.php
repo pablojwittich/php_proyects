@@ -14,6 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 auto;
         }
         nav{
             background-color: #1f5cc5;
@@ -36,7 +37,18 @@
             border-radius: 50%;
             width: 2em;
             height: 2em;
-
+        }
+        .index{
+            padding-right:33em;
+            font-style: block;
+        }
+        .inicio{
+            background-color:#f2f2f2;
+            color:#131f26;
+            border-radius: 50px;
+            vertical-align:center;
+            line-height:1.5em;
+            margin-bottom: 0.3em;
         }
     </style>
 </head>
@@ -44,12 +56,12 @@
     <section>
         <header>
             <nav>
-                <a><img class="logo" src="//home/p4bl0/Documentos/php_proyects/pageL-ato/resources/img/logo_ca.png" alt="logo_CA"/></a>
-                <a  href="#">A tus ordenes!</a>
-                <a href="#">Home</a>
-                <a href="#">Features</a>
-                <a href="#">Pricing</a>
-                <a href="" >Disabled</a>
+                <a href="{{ route('index') }}"><img class="logo" src="/img/logo_ca.png"/></a>
+                <a class="index"  href="{{route('index')}}">A tus ordenes!</a>
+                <a href="{{route('quienes')}}">Quiénes somos</a>
+                <a href="{{route('vision')}}">Visión</a>
+                <a href="{{('mision')}}">Misión</a>
+                <a class="inicio" href="{{route('inicio')}}">Iniciar Sesión</a>
             </nav>
         </header>
     </section>
