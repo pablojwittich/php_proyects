@@ -15,14 +15,17 @@ class MissController extends Controller
     {
         return view("app");
     }
+
     public function sobreMi()
     {
         return view("sobreMi");
     }
+
     public function misCursos()
     {
         return view("misCursos");
     }
+
     public function contactame()
     {
         return view("contactame");
