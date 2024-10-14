@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/17572/17572589.png">
     <title>A tus ordenes!</title>
     <style>
         *{
@@ -50,7 +51,7 @@
     <section>
         <header>
             <nav>
-                <a href="{{ route('index') }}"><img class="logo" src="https://media-eze1-1.cdn.whatsapp.net/v/t61.24694-24/95089700_586177075347204_1598701341885009064_n.jpg?ccb=11-4&oh=01_Q5AaIEC4zEGDEYVIWSWq-YJS3u_seetWf0qb-PC9jOQVb2_V&oe=6719D4B1&_nc_sid=5e03e0&_nc_cat=108"></a>
+                <a href="{{ route('index') }}"><img class="logo" src="https://cdn-icons-png.flaticon.com/128/17572/17572589.png"></a>
                 <a class="index"  href="{{route('index')}}">A tus ordenes!</a>
                 <a href="{{route('quienes')}}">Quiénes somos</a>
                 <a href="{{route('vision')}}">Visión</a>
