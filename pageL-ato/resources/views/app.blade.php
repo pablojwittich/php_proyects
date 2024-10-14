@@ -13,20 +13,44 @@
             margin: 0;
             padding: 0;
         }
-        nav{
-            padding-botom: 2em;
-            padding-top: 2em;
-            background-color: blue;
-            margin: 0 auto;
+        body{
+            background-color: #EFEFEF;
         }
+        nav{
+            display: table;
+            height:100px;
+            padding-left:3em;
+            padding-right:3em;
+            background-color: #BFC0C1;
+            margin: 0 auto;
+            width: 100%;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+        .logo{
+            width: 4em;
+            height: 4em;
+            border-radius: 50px;
+        }
+        .index{
+            padding-right: 30em;
+        }
+        .inicio{
 
+        }
     </style>
 </head>
 <body>
     <section>
         <header>
             <nav>
-                <a href="{{ route('index') }}"><img class="logo" src="/img/logo_ca.png"/></a>
+                <a href="{{ route('index') }}"><img class="logo" src="https://media-eze1-1.cdn.whatsapp.net/v/t61.24694-24/95089700_586177075347204_1598701341885009064_n.jpg?ccb=11-4&oh=01_Q5AaIEC4zEGDEYVIWSWq-YJS3u_seetWf0qb-PC9jOQVb2_V&oe=6719D4B1&_nc_sid=5e03e0&_nc_cat=108"></a>
                 <a class="index"  href="{{route('index')}}">A tus ordenes!</a>
                 <a href="{{route('quienes')}}">Quiénes somos</a>
                 <a href="{{route('vision')}}">Visión</a>
