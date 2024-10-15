@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Miss Belu</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/11033/11033625.png">
         <style>
             *
             {
@@ -26,7 +27,7 @@
         <header>
             <nav>
                 <a href="{{route('index')}}">
-                    <img src="../img/logo_miss_belu.png" alt="">
+                    <img src="https://cdn-icons-png.flaticon.com/128/11033/11033625.png" alt=""  />
                 </a>
                 <a href="{{route('index')}}"><h1>Miss Belu</h1></a>
                 <a href="{{route('sobreMi')}}">Sobre mi</a>
