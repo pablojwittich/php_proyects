@@ -13,13 +13,25 @@
                 padding:0;
                 margin: 0;
             }
-            nav
-            {
-                background-color: #7d3c98 ;
-            }
             body
             {
                 background-color: #090013;
+            }
+            nav
+            {
+                background-color: #7d3c98 ;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+
+            }
+            a{
+                color: white;
+                margin-left: 1em;
+                text-decoration: none;
+
+
             }
         </style>
     </head>
@@ -33,6 +45,8 @@
                 <a href="{{route('sobreMi')}}">Sobre mi</a>
                 <a href="{{route('misCursos')}}">Mis cursos</a>
                 <a href="{{route('contactame')}}">Contactame</a>
+                <a href="">Nombre de Usuario</a>
+
             </nav>
         </header>
         <main>
