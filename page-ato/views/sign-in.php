@@ -1,4 +1,7 @@
-<?php include "app.php"; ?>
+<?php include "app.php";
+
+session_start();
+?>
 <head>
     <style>
         .container {
@@ -60,13 +63,10 @@
     <section class="container">
         <div id="signup-form" class="form-section">
             <h2>Crear Cuenta</h2>
-
-            <form method="post" action="index.php">
-                <section class="alert alert-success alert-dismissible fade show" role="alert">
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
+              <div><?php 
+                include "../controllers/controller-sign-in.php";
+              ?></div>
+            <form method="post" action=""> <section class="alert alert-success alert-dismissible fade show" role="alert"> <button type="button" class="btn-close" data-bs-dismiss="alert"
                         aria-label="close"
                     ></button>
                     <p>Registro logrado con éxito!</p>
@@ -74,11 +74,11 @@
                 <section class="row g-3">
                   <div class="col">
                     <h5>Nombre</h5>
-                    <input type="text" class="form-control"  aria-label="Nombre">
+                    <input type="text" class="form-control"  aria-label="Nombre" name="nombre">
                   </div>
                   <div class="col">
                     <h5>Apellido</h5>
-                    <input type="text" class="form-control" aria-label="Apellido">
+                    <input type="text" class="form-control" aria-label="Apellido" name="apellido">
                   </div>
                 </section>
                 <section class="col">
@@ -88,11 +88,11 @@
                 <section class="row g-3">
                   <div class="col">
                     <h5>Contraseña</h5>
-                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña" type="password" required>
+                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña1" type="password" name="contraseña" required>
                   </div>
                   <div class="col">
                     <h5>Repetir contraseña</h5>
-                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña" type="password" required>
+                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña2" type="password" name="contraseña" required>
                   </div>
                   <div clas="mostrarContrasena">
                      <p><input class="verPass" type="checkbox" >Mostrar contraseña<p>
