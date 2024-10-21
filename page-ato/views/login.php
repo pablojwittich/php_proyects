@@ -76,7 +76,7 @@ session_start();
             <input  type="text" class="input" name="Lemail">
           <h5>Contraseña</h5>
             <input type="password" id="input" class="input" name="Lpass">
-            <input name="iniciar-sesion" class="login-btn" type="submit" value="Iniciar sesion">
+            <input name="btn-login" class="login-btn" type="submit" value="Iniciar sesion">
         </form>
           <a class="link-regis" href="sign-in.php"><p class="toggle-form" onclick="toggleForm('signup-form')">¿No tienes cuenta? Regístrate</p></a>
     </section>

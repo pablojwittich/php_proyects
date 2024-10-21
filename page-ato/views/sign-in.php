@@ -1,6 +1,5 @@
 <?php include "app.php";
 
-session_start();
 ?>
 <head>
     <style>
@@ -59,50 +58,84 @@ session_start();
         }
     </style>
 </head>
+<!--<body>
+    <section class="container">
+      <section class="form-section">
+        <h2>Crear una cuenta</h2>
+      <?php include ("../controllers/controller-sign-in.php"); ?>
+        <form method="post" action="">
+          <section class="row g-3">
+            <div class="col">
+              <h5>Nombre</h5>
+              <input name="Rname" class="form-control" type="text" required>
+            </div>
+            <div class="col"> 
+              <h5>Apellido</h5>
+              <input name="Rsurname" class="form-control" type="text" required> 
+            </div>
+          </section>
+          <section class="col">
+            <h5>Correo electronico</h5>
+            <input name="Remail" class="form-control" type="email" required> 
+          </section>
+          <section class="row g-3">
+            <div class="col">
+              <h5>Contraseña</h5> 
+              <input name="Rpass1" class="form-control" type="password" required>
+            </div>
+            <div class="col">
+              <h5>Repetir contraseña</h5>
+              <input name="Rpass2" class="form-control" type="password" required>
+            </div>
+          </section>
+          <button name="btn-register" class="regis-btn" type="submit">Reguistrarse</button>
+        </form>
+        <a class="link-login" href="login.php">
+          <p class="toggle-form" onclick="toggleForm('login-form')">
+              ¿Ya tienes cuenta? Inicia sessión
+          </p>
+        </a>
+      </section>
+    </section>
+</body>-->
+
 <body>
     <section class="container">
-        <div id="signup-form" class="form-section">
-            <h2>Crear Cuenta</h2>
-              <div><?php 
-                include "../controllers/controller-sign-in.php";
-              ?></div>
-            <form method="post" action=""> <section class="alert alert-success alert-dismissible fade show" role="alert"> <button type="button" class="btn-close" data-bs-dismiss="alert"
-                        aria-label="close"
-                    ></button>
-                    <p>Registro logrado con éxito!</p>
-                </section>
+        <section class="form-section">
+            <h2>Crear una cuenta</h2>
+            <form method="post" action="">
                 <section class="row g-3">
-                  <div class="col">
-                    <h5>Nombre</h5>
-                    <input type="text" class="form-control"  aria-label="Nombre" name="nombre">
-                  </div>
-                  <div class="col">
-                    <h5>Apellido</h5>
-                    <input type="text" class="form-control" aria-label="Apellido" name="apellido">
-                  </div>
+                    <div class="col">
+                        <label for="Rname"><h5>Nombre</h5></label>
+                        <input id="Rname" name="Rname" class="form-control" type="text" required>
+                    </div>
+                    <div class="col"> 
+                        <label for="Rsurname"><h5>Apellido</h5></label>
+                        <input id="Rsurname" name="Rsurname" class="form-control" type="text" required> 
+                    </div>
                 </section>
                 <section class="col">
-                  <h5>Correo electronico</h5>
-                    <input class="form-control" name="Regis-email" type="email" required>
+                    <label for="Remail"><h5>Correo electrónico</h5></label>
+                    <input id="Remail" name="Remail" class="form-control" type="email" required> 
                 </section>
                 <section class="row g-3">
-                  <div class="col">
-                    <h5>Contraseña</h5>
-                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña1" type="password" name="contraseña" required>
-                  </div>
-                  <div class="col">
-                    <h5>Repetir contraseña</h5>
-                    <input class="form-control" id="mostrarContrasena" name="Regis-contraseña2" type="password" name="contraseña" required>
-                  </div>
-                  <div clas="mostrarContrasena">
-                     <p><input class="verPass" type="checkbox" >Mostrar contraseña<p>
-                  </div>
+                    <div class="col">
+                        <label for="Rpass1"><h5>Contraseña</h5></label> 
+                        <input id="Rpass1" name="Rpass1" class="form-control" type="password" required>
+                    </div>
+                    <div class="col">
+                        <label for="Rpass2"><h5>Repetir contraseña</h5></label>
+                        <input id="Rpass2" name="Rpass2" class="form-control" type="password" required>
+                    </div>
                 </section>
-
-                <button class="regis-btn" name="registrarse" href="sing-in.php" type="submit">Registrarse</button>
+                <button name="btn-register" class="regis-btn" type="submit">Registrarse</button>
             </form>
-            <a class="link-login" href="login.php"><p class="toggle-form" onclick="toggleForm('login-form')">¿Ya tienes cuenta? Inicia sesión</p></a>
-        </div>
+            <a class="link-login" href="login.php">
+                <p class="toggle-form" onclick="toggleForm('login-form')">
+                    ¿Ya tienes cuenta? Inicia sesión
+                </p>
+            </a>
+        </section>
     </section>
-  <script src="../js/verPass.js"></script>
 </body>
+

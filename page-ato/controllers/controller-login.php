@@ -5,7 +5,7 @@ include ("../models/connection.php");
 # Inicia una nueva sesión o reanudar la existente
 session_start();
 # Si los campos del post iniciar-sesion NO estan vacios haz..
-if (!empty($_POST["iniciar-sesion"])){
+if (!empty($_POST["btn-login"])){
   # Si los campos del post email y pass NO estan hacios haz ..
   if (!empty($_POST["Lemail"]) && !empty($_POST["Lpass"])){
         # Guardar los datos del post en variables
@@ -19,8 +19,8 @@ if (!empty($_POST["iniciar-sesion"])){
         if ($datos = $sql->fetch_object()){
 
           #Guarda los datos del usuario que inicio la session
-          $_SESSION['id']=$datos->id;
-          $_SESSION['usuario']=$datos->usuarios;
+          $_SESSION['name']=$datos->names;
+          $_SESSION['surname']=$datos->surname;
           $_SESSION['password']=$datos->passwords;
           $_SESSION['email']=$datos->emails;
 
