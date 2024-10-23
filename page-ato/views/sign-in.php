@@ -1,6 +1,5 @@
-<?php 
-  include "app.php";
-?>
+<?php
+include "app.php"; ?>
 <head>
     <style>
         .container {
@@ -36,6 +35,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 1rem;
+            margin-top:1em;
         }
         .regis-btn:hover{
           background-color: #1557b0;
@@ -49,12 +49,12 @@
           justify-content: center;
           margin: 0 auto;
           margin-top: 1em;
-          margin-bottom: 1em;
         }
         .php{
           text-align:center;
           color: red;
-          margin-bottom: 1em;
+          margin-bottom: 0.5em;
+          margin-top: 0.5em
         }
     </style>
 </head>
@@ -63,7 +63,7 @@
         <section class="form-section">
             <h2>Crear una cuenta</h2>
             <section class="php">
-              <?php include ("../controllers/controller-sign-in.php") ?>
+              <?php include "../controllers/controller-sign-in.php"; ?>
             </section>
             <form method="post" action="">
                 <section class="row g-3">
@@ -71,18 +71,18 @@
                         <label for="Rname"><h5>Nombre</h5></label>
                         <input id="Rname" name="Rname" class="form-control" type="text" required>
                     </div>
-                    <div class="col"> 
+                    <div class="col">
                         <label for="Rsurname"><h5>Apellido</h5></label>
-                        <input id="Rsurname" name="Rsurname" class="form-control" type="text" required> 
+                        <input id="Rsurname" name="Rsurname" class="form-control" type="text" required>
                     </div>
                 </section>
                 <section class="col">
                     <label for="Remail"><h5>Correo electrónico</h5></label>
-                    <input id="Remail" name="Remail" class="form-control" type="email" required> 
+                    <input id="Remail" name="Remail" class="form-control" type="email" required>
                 </section>
                 <section class="row g-3">
                     <div class="col">
-                        <label for="Rpass1"><h5>Contraseña</h5></label> 
+                        <label for="Rpass1"><h5>Contraseña</h5></label>
                         <input id="Rpass1" name="Rpass1" class="form-control" type="password" required>
                     </div>
                     <div class="col">
@@ -100,4 +100,3 @@
         </section>
     </section>
 </body>
-
