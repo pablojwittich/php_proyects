@@ -1,13 +1,13 @@
 <?php
 include "app.php"; 
 session_start();
-if (empty($_SESSION["usuario"]))
-{
-  header("Location:../views/login.php");
-}
+    if (empty($_SESSION["usuario"]))
+    {
+      header("Location:../views/login.php");
+    }
 ?>
 <head>
-    <title>A tus ordenes!</tittle>
+    <title>A tus ordenes!</title>
     <style>
     </style
 </head>

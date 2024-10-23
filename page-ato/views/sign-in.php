@@ -1,5 +1,5 @@
-<?php include "app.php";
-
+<?php 
+  include "app.php";
 ?>
 <head>
     <style>
@@ -9,7 +9,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 30em;
-            height: 36em;
+            height: auto;
             margin-top:2em;
         }
         h2 {
@@ -40,8 +40,7 @@
         .regis-btn:hover{
           background-color: #1557b0;
         }
-        .toggle-form{
-          text-align: center;
+        .toggle-form{ text-align: center;
           color: #1a73e8;
           cursor: pointer;
         }
@@ -52,57 +51,20 @@
           margin-top: 1em;
           margin-bottom: 1em;
         }
-        .mostrarContrasena{
-          margin-top:0.2em;
-          margin-bottom:0.3em;
+        .php{
+          text-align:center;
+          color: red;
+          margin-bottom: 1em;
         }
     </style>
 </head>
-<!--<body>
-    <section class="container">
-      <section class="form-section">
-        <h2>Crear una cuenta</h2>
-      <?php include ("../controllers/controller-sign-in.php"); ?>
-        <form method="post" action="">
-          <section class="row g-3">
-            <div class="col">
-              <h5>Nombre</h5>
-              <input name="Rname" class="form-control" type="text" required>
-            </div>
-            <div class="col"> 
-              <h5>Apellido</h5>
-              <input name="Rsurname" class="form-control" type="text" required> 
-            </div>
-          </section>
-          <section class="col">
-            <h5>Correo electronico</h5>
-            <input name="Remail" class="form-control" type="email" required> 
-          </section>
-          <section class="row g-3">
-            <div class="col">
-              <h5>Contraseña</h5> 
-              <input name="Rpass1" class="form-control" type="password" required>
-            </div>
-            <div class="col">
-              <h5>Repetir contraseña</h5>
-              <input name="Rpass2" class="form-control" type="password" required>
-            </div>
-          </section>
-          <button name="btn-register" class="regis-btn" type="submit">Reguistrarse</button>
-        </form>
-        <a class="link-login" href="login.php">
-          <p class="toggle-form" onclick="toggleForm('login-form')">
-              ¿Ya tienes cuenta? Inicia sessión
-          </p>
-        </a>
-      </section>
-    </section>
-</body>-->
-
 <body>
     <section class="container">
         <section class="form-section">
             <h2>Crear una cuenta</h2>
+            <section class="php">
+              <?php include ("../controllers/controller-sign-in.php") ?>
+            </section>
             <form method="post" action="">
                 <section class="row g-3">
                     <div class="col">
