@@ -1,6 +1,6 @@
 <?php
 
-include "../models/connection.php";
+require "../models/connection.php";
 
 if (isset($_POST["btn-register"])) {
     if (
