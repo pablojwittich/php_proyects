@@ -42,6 +42,7 @@
           <div class="card-body p-5 text-center">
 
             <form class="form-login">
+            @csrf
                 <section class="mb-md-5 mt-md-4 pb-5">
 
                     <h2 class="txt-inicio fw-bold mb-2 text-uppercase">Iniciar sesion</h2>
